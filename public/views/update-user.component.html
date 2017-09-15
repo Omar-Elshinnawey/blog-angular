@@ -1,0 +1,54 @@
+<div class="right">
+    <a routerLink="/" class="btn btn-flat create"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+</div>
+
+<div class="container v-center-col">
+
+    <form #updateForm="ngForm" (ngSubmit)="onsubmit()">
+        <div class="form-group v-center-col">
+            <label for="username">Username</label>
+            <input id="username" name="username" class="form-control" type="text" placeholder="old username" required minlength="6" maxlength="12" [(ngModel)]="current.username" #username="ngModel">
+
+            <div class="v-center-row message">
+                <span class="err" *ngIf="username.invalid && (username.dirty || username.touched)">Username is required and should be from 6 to 12 characters</span>
+                <span class="length">{{current.username.length || 0}}/12</span>
+            </div>
+        </div>
+
+        <div class="form-group v-center-col">
+            <label for="password">Password</label>
+            <input id="password" name="password" class="form-control" type="password" placeholder="old password" required minlength="8" maxlength="16" [(ngModel)]="current.password" #password="ngModel">
+
+            <div class="v-center-row message">
+                <span class="err" *ngIf="password.invalid && (password.dirty || password.touched)">Password is required and should be from 8 to 16 characters</span>
+                <span class="length">{{current.password.length || 0}}/16</span>
+            </div>
+        </div>
+
+        <div class="form-group v-center-col">
+            <label for="newUsername">New Username</label>
+            <input id="newUsername" name="newUsername" class="form-control" type="text" placeholder="new username" minlength="6" maxlength="12" [(ngModel)]="updated.username" #newUsername="ngModel">
+
+            <div class="v-center-row message">
+                <span class="err" *ngIf="newUsername.invalid && (newUsername.dirty || newUsername.touched)">Username should be from 6 to 12 characters</span>
+                <span class="length">{{updated.username.length || 0}}/12</span>
+            </div>
+        </div>
+
+        <div class="form-group v-center-col">
+            <label for="newPassword">New Password</label>
+            <input id="newPassword" name="newPassword" class="form-control" type="password" placeholder="password" minlength="8" maxlength="16" [(ngModel)]="updated.password" #newPassword="ngModel">
+
+            <div class="v-center-row message">
+                <span class="err" *ngIf="newPassword.invalid && (newPassword.dirty || newPassword.touched)">Password should be from 8 to 16 characters</span>
+                <span class="length">{{updated.password.length || 0}}/16</span>
+            </div>
+        </div>
+
+        <div class="form-group v-center-col" *ngIf="updateForm.valid && !isLoading" [@fade_in]="in">
+            <button type="submit" class="btn btn-raised primary">Submit</button>
+        </div>
+    </form>
+    <loading [isLoading]="isLoading"></loading>
+
+</div>

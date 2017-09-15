@@ -1,0 +1,10 @@
+<div class="modal-back v-center-col">
+    <div class="container modal">
+        <h3>{{options?.title}}</h3>
+        <p>{{options?.message}}</p>
+        <div class="btn-set">
+            <a activeBtn class="btn btn-flat" href="javascript:void(0)" (click)="close()">{{options?.closeBtn}}</a>
+            <a activeBtn class="btn btn-raised danger" href="javascript:void(0)" (click)="confirm()">{{options?.confirmBtn}}</a>
+        </div>
+    </div>
+</div>

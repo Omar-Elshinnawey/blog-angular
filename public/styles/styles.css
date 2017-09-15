@@ -1,0 +1,212 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    -webkit-appearance: none;
+}
+
+.dark-primary {
+    background-color: #303F9F;
+    color: #fff;
+}
+
+.primary {
+    background-color: #3F51B5;
+    color: #fff;
+}
+
+.light-primary {
+    background-color: #7986CB;
+}
+
+.dark-secondary {
+    background-color: #3D5AFE;
+    color: #fff;
+}
+
+.secondary {
+    background-color: #536DFE;
+    color: #fff;
+}
+
+.light-secondary {
+    background-color: #8C9EFF;
+    color: #000;
+}
+
+.danger {
+    background-color: #BD362F;
+    color: #fff;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+p {
+    line-height: 200%;
+}
+
+a {
+    text-decoration: none;
+    color: #3F51B5;
+}
+
+.v-center-col {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.v-center-row {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.shadow-bottom {
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.btn {
+    display: inline-block;
+    font-weight: bold;
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    border: none;
+    border-radius: 2px;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: background-color .3s;
+}
+
+.btn:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0;
+    padding-top: 0;
+    border-radius: 100%;
+    background-color: rgba(236, 240, 241, .3);
+    transform: translate(-50%, -50%);
+}
+
+.btn.btn-active:before {
+    width: 120%;
+    padding-top: 120%;
+    transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+.btn-raised {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.btn-flat {
+    color: #000;
+}
+
+.btn-flat:hover {
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+.btn-flat.btn-active {
+    background-color: rgba(0, 0, 0, 0.23);
+}
+
+.btn-fap {
+    border-radius: 50%;
+    margin: 0;
+}
+
+.fap-bottom-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+}
+
+.btn.primary.btn-active {
+    background-color: #303F9F;
+}
+
+.btn.danger.btn-active {
+    background-color: #a52b22;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.header {
+    padding: 2vh 2vw;
+    position: relative;
+    z-index: 800;
+}
+
+.footer {
+    padding: 2vh 5vw;
+    position: relative;
+    z-index: 700;
+}
+
+.footer div {
+    padding: 5px 0;
+    text-align: center;
+}
+
+.footer a {
+    color: inherit;
+    padding: 0 10px;
+    text-decoration: none;
+}
+
+.footer a:visited,
+.footer a:focus {
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+}
+
+.header * {
+    text-align: center;
+}
+
+.app {
+    flex: 1;
+    z-index: 800;
+    position: relative;
+}
+
+.right {
+    display: flex;
+}
+
+.right> :first-child {
+    margin-left: auto;
+}
+
+.right .btn {
+    margin-top: 0;
+}

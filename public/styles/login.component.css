@@ -1,0 +1,54 @@
+.container {
+    padding: 5vh 2vw;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+.form-group .message {
+    justify-content: flex-end;
+    align-self: stretch;
+}
+
+.form-group .length {
+    color: #c8ccd0;
+}
+
+.form-group .err {
+    align-self: flex-start;
+    flex: 1;
+    margin-right: 10px;
+    color: #a94442;
+}
+
+.form-control {
+    width: 95vw;
+    padding: 5px;
+    font-size: 20px;
+    border: 1px solid #c8ccd0;
+    resize: none;
+    outline: none;
+    transition: all 0.3s ease-in;
+}
+
+.form-control:focus {
+    border: 1px solid #3F51B5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.16), 0 0 10px rgba(0, 0, 0, 0.23);
+}
+
+@media only screen and (min-width: 760px) {
+    .form-group {
+        width: 50vw;
+    }
+    .form-control {
+        width: 50vw;
+    }
+}

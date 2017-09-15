@@ -1,0 +1,37 @@
+<div class="left">
+    <a activeBtn routerLink="/" class="btn btn-flat"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to posts</a>
+</div>
+
+<div class="container">
+    <h2>{{post?.title}}</h2>
+    <div class="title-image v-center-col">
+        <img [src]="post?.thumbnail" [alt]="post?.thumbnail">
+    </div>
+
+    <div class="post-body">
+        <markdown [data]="post?.body || ''"></markdown>
+    </div>
+
+    <div class="tags">
+        <div class="tag" *ngFor="let tag of post?.tags">
+            <i class="fa fa-tag" aria-hidden="true"></i>
+            <span>{{tag}}</span>
+        </div>
+    </div>
+
+    <div class="btn-set" *ngIf="auth.isAuthenticated()">
+        <a activeBtn routerLink="/new" [queryParams]="{p: post?._id}" class="btn btn-raised primary">Edit Post</a>
+        <a activeBtn href="javascript:void(0)" (click)="openDialog()" class="btn btn-raised danger">Delete Post</a>
+    </div>
+
+    <hr>
+
+    <div class="similar">
+        <h4>Similar posts</h4>
+        <div class="similar-post" *ngFor="let p of posts">
+            <a [routerLink]="['/post', p._id]">{{p.title}}</a>
+        </div>
+    </div>
+
+    <loading [isLoading]="isLoading"></loading>
+</div>

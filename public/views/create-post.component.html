@@ -1,0 +1,61 @@
+<div class="right">
+    <a activeBtn routerLink="/" class="btn btn-flat create"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+</div>
+
+<div class="container">
+
+    <form (ngSubmit)="onsubmit()" #postForm="ngForm">
+        <div class="form-group v-center-col">
+            <label for="title">Title</label>
+            <input id="title" name="title" class="form-control" type="text" placeholder="title" [(ngModel)]="post.title" required maxlength="50" #title="ngModel">
+
+            <div class="v-center-row message">
+                <span class="err" *ngIf="title.invalid && (title.dirty || title.touched)">The title is required and should be less than 50 characters</span>
+                <span class="length">{{post.title?.length || 0}}/50</span>
+            </div>
+        </div>
+
+        <div class="form-group v-center-col" *ngIf="!isUpdate">
+            <label for="thumbnail">Thumbnail</label>
+            <div class="v-center-row">
+                <input id="thumbnail" class="form-control txtbtn" type="text" placeholder="thumbnail" [value]="file?.name" disabled>
+                <a activeBtn class="btn primary" href="javascript:void(0)" (click)="fpicker.click()"><i class="fa fa-plus" aria-hidden="true"></i></a>
+            </div>
+            <input type="file" name="thumbnail" hidden (change)="onfilechange()" #fpicker>
+
+            <div class="v-center-row message">
+                <span class="err" *ngIf="fpicker.invalid">Please choose a valid file</span>
+            </div>
+        </div>
+
+        <div class="form-group v-center-col">
+            <label for="tag">Tags</label>
+            <input id="tag" name="tag" class="form-control" type="text" placeholder="tags, separate with spaces" [(ngModel)]="tags" required #tag="ngModel">
+
+            <div class="v-center-row message">
+                <span class="err" *ngIf="tag.invalid && (tag.dirty || tag.touched)">Please add at least one tag</span>
+            </div>
+        </div>
+
+        <div class="editor form-group v-center-col">
+            <label for="body">Body</label>
+            <textarea id="body" name="body" class="form-control" placeholder="type here..." [(ngModel)]="post.body" required #body="ngModel"></textarea>
+
+            <div class="v-center-row message">
+                <span class="err" *ngIf="body.invalid && (body.dirty || body.touched)">The post body is required</span>
+            </div>
+
+            <a activeBtn *ngIf="post.body && post.body.length > 0" href="javascript:void(0)" [@fade_in]="in" (click)="toggleReview()" class="btn btn-raised primary">Preview</a>
+        </div>
+
+        <div class="form-group v-center-col" *ngIf="postForm.valid && !isLoading" [@fade_in]="in">
+            <button activeBtn type="submit" class="btn btn-raised primary">Submit</button>
+        </div>
+    </form>
+
+    <div class="preview" *ngIf="preview">
+        <markdown [data]="post.body || ''"></markdown>
+    </div>
+</div>
+
+<loading [isLoading]="isLoading"></loading>

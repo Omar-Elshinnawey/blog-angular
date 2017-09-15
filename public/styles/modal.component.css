@@ -1,0 +1,21 @@
+.modal-back {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.23);
+}
+
+.modal {
+    padding: 5vh 5vw;
+    background-color: #fff;
+}
+
+.btn-set {
+    margin: 10px 0;
+}
+
+.btn-set a {
+    margin: 0 5px;
+}

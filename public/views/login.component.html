@@ -1,0 +1,34 @@
+<div class="right">
+    <a activeBtn routerLink="/" class="btn btn-flat create"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+</div>
+
+<div class="container v-center-col">
+
+    <form #loginForm="ngForm" (ngSubmit)="onsubmit()">
+        <div class="form-group v-center-col">
+            <label for="username">Username</label>
+            <input id="username" name="username" class="form-control" type="text" placeholder="username" required minlength="6" maxlength="12" [(ngModel)]="user.username" #username="ngModel">
+
+            <div class="v-center-row message">
+                <span class="err" *ngIf="username.invalid && (username.dirty || username.touched)">Username is required and should be from 6 to 12 characters</span>
+                <span class="length">{{user.username.length || 0}}/12</span>
+            </div>
+        </div>
+
+        <div class="form-group v-center-col">
+            <label for="password">Password</label>
+            <input id="password" name="password" class="form-control" type="password" placeholder="password" required minlength="8" maxlength="16" [(ngModel)]="user.password" #password="ngModel">
+
+            <div class="v-center-row message">
+                <span class="err" *ngIf="password.invalid && (password.dirty || password.touched)">Password is required and should be from 8 to 16 characters</span>
+                <span class="length">{{user.password.length || 0}}/16</span>
+            </div>
+        </div>
+
+        <div class="form-group v-center-col" *ngIf="loginForm.valid && !isLoading" [@fade_in]="in">
+            <button activeBtn type="submit" class="btn btn-raised primary">Submit</button>
+        </div>
+    </form>
+    <loading [isLoading]="isLoading"></loading>
+
+</div>

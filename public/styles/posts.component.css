@@ -1,0 +1,99 @@
+.search-container {
+    position: relative;
+}
+
+.search-container button,
+.search-container form,
+.search-container input[type='text'] {
+    font-size: 24px;
+    color: inherit;
+}
+
+.search-container form {
+    padding: 1vh 5vw;
+}
+
+.search-container input[type='text'] {
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    flex: 1;
+}
+
+@media only screen and (max-width: 330px) {
+    .search-container input[type='text'],
+    .search-container button,
+    .search-container form {
+        font-size: 16px;
+    }
+}
+
+.search-container input[type='text']::-webkit-input-placeholder {
+    color: inherit;
+}
+
+.search-container input[type='text']:-moz-placeholder {
+    color: inherit;
+}
+
+.search-container input[type='text']::-moz-placeholder {
+    color: inherit;
+}
+
+.search-container input[type='text']:-ms-input-placeholder {
+    color: inherit;
+}
+
+.container {
+    padding: 2vh 5vw;
+}
+
+.card {
+    width: 90vw;
+    margin: 5px 0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    cursor: pointer;
+}
+
+.card img {
+    width: inherit;
+    max-height: 300px;
+}
+
+.card h3 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.card .tags {
+    padding: 0 10px 10px 10px;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card .tag {
+    margin: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+    .container {
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .card {
+        width: 344px;
+        margin: 10px;
+    }
+}
+
+.cancel-search {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
